@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { getCookie } from '../utils/cookie';
+import { refreshToken } from './api';
 
 axios.defaults.baseURL = 'http://localhost:8000/api';
 axios.defaults.withCredentials = true;

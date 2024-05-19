@@ -9,6 +9,8 @@ axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.headers.common["X-CSRFToken"] = getCookie("csrftoken");
 
 export const instance = axios.create();
+export const instanceWithToken = axios.create();
+
 export const kakaoPayInstance = axios.create(
   {
     baseURL: "https://openapi.kaopay.com/v1/online/payment",

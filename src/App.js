@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomePage from './routes/HomePage/HomePage';
-import PayPage from './routes/PayPage/PayPage';
+import HomePage from './routes/HomePage';
+import PayPage from './routes/PayPage';
 
 function App() {
   return (

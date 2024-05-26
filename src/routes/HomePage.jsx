@@ -38,6 +38,9 @@ const HomePage = () => {
       <br></br>
       <button onClick={handleSignIn}>Sign In</button>
       <button onClick={handleSignUp}>Sign Up</button>
+      <br></br>
+      <br></br>
+      <button onClick={() => {window.location.href = '/pay-history'}}>결제내역 페이지로 이동</button>
     </div>
   );
 };

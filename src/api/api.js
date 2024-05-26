@@ -32,6 +32,16 @@ export const payApprove = async (pgToken) => {
   }
 }
 
+export const payHist = async () => {
+  const response = await instanceWithToken.get("/pay/history/");
+  if (response.status === 200) {
+    console.log(response.data);
+    return response.data;
+  } else {
+    console.error(response.data);
+  }
+}
+
 export const signIn = async (data) => {
   let response;
   try {

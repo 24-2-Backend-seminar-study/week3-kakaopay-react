@@ -11,20 +11,21 @@ axios.defaults.headers.common["X-CSRFToken"] = getCookie("csrftoken");
 export const instance = axios.create();
 export const instanceWithToken = axios.create();
 
-export const kakaoPayInstance = axios.create(
-  {
-    baseURL: "https://openapi.kaopay.com/v1/online/payment",
-    headers: {
-      Authorization: `SECRET_KEY ${KAKAO_PAY_KEY}`,
-      "Content-Type": "application/json"
-    },
-  }
-);
+// export const kakaoPayInstance = axios.create(
+//   {
+//     baseURL: 'https://open-api.kakaopay.com/online/v1/payment',
+//     headers: {
+//       Authorization: `SECRET_KEY ${KAKAO_PAY_KEY}`,
+//       'Content-Type': 'application/json',
+//     },
+//   }
+// );
 
 instanceWithToken.interceptors.request.use(
   (config) => {
     const accessToken = getCookie("access_token");
     if (!accessToken) {
+      console.log("no access token");
       return;
     } else {
       config.headers["Authorization"] = `Bearer ${accessToken}`;

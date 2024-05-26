@@ -10,10 +10,8 @@ export const refreshToken = async (token) => {
 };
 
 export const payPrep = async (data) => {
-  console.log("prepared data", data);
   const response = await instanceWithToken.post("/pay/ready/", data);
   if (response.status === 200) {
-    console.log(response.data);
     const { tid } = response.data;
     localStorage.setItem("tid", tid);
     const { next_redirect_pc_url } = response.data;
@@ -24,11 +22,9 @@ export const payPrep = async (data) => {
 }
 
 export const payApprove = async (pgToken) => {
-  console.log("pgToken", pgToken);
   const tid = localStorage.getItem("tid");
   const response = await instance.post("/pay/approve/", { pg_token: pgToken, tid: tid });
   if (response.status === 200) {
-    console.log(response.data);
     localStorage.removeItem("tid");
     window.location.href = "/";
   } else {
@@ -52,7 +48,6 @@ export const signIn = async (data) => {
 
 export const signUp = async (data) => {
   const response = await instance.post("/account/signup/", data);
-  console.log(response.data);
   if (response.status === 200) {
     window.location.href = "/";
   }
